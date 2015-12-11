@@ -1,0 +1,8 @@
+#! /bin/bash
+#!/bin/bash
+HOSTS="leaf1 leaf2 spine1 spine2"
+SCRIPT="hostname; cat /etc/network/interfaces; cat /etc/quagga/Quagga.conf; sudo cl-bgp summary; sudo cl-bgp neighbor show all; ip route"
+for HOSTNAME in ${HOSTS} ; do
+    ssh -t ${HOSTNAME} "${SCRIPT}"
+done
+

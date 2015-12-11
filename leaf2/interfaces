@@ -1,0 +1,19 @@
+auto lo
+iface lo
+ address 2.2.2.2/32
+ address 2001:db8::2/128
+
+auto eth0
+iface eth0 inet dhcp
+ 
+auto swp1
+iface swp1
+ alias Spine1-Leaf2 Connection
+ address 10.1.2.1/30
+ address 2001:db8:1:2::1/64
+
+auto swp2
+iface swp2
+ alias Spine2-Leaf2 Connection
+ address 10.2.2.1/30
+ address 2001:db8:2:2::1/64
