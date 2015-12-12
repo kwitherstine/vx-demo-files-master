@@ -1,0 +1,5 @@
+---
+- hosts: network
+  sudo: yes
+  tasks:
+  - apt: upgrade=dist
