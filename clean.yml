@@ -14,7 +14,7 @@
     command: rm /etc/quagga/Quagga.conf
 
   - name: Reboot Switches
-      command: reboot
+    command: reboot
 
   handlers:
    - name: apply interfaces
