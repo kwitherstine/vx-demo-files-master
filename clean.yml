@@ -4,8 +4,6 @@
   tasks:
   - name: Copy Default Interfaces File to each Switch
     copy: src=mgmt-ui/interfaces.orig dest=/etc/network/interfaces
-    notify:
-    - apply interfaces
 
   - name: Copy Default Quagga Daemons File to each Switch
     copy: src=mgmt-ui/daemons.orig dest=/etc/quagga/daemons
@@ -15,7 +13,3 @@
 
   - name: Reboot Switches
     command: reboot
-
-  handlers:
-   - name: apply interfaces
-     command: ifreload -a
