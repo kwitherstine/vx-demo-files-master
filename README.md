@@ -1,6 +1,3 @@
-kevtest
-
-This is a collection of configurations for network devices. 
 
 This is an everyday basic 4 node BGP based Ansible automation demo. Requirements are a management VM, 4 Cumulus VX VM's configured as 2 leaf and 2 spine. Runs on VirtualBox.
 
