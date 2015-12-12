@@ -14,7 +14,14 @@
     command: rm /etc/quagga/Quagga.conf
 
   - name: Reboot Switches
+<<<<<<< HEAD
     command: reboot
+
+  handlers:
+   - name: apply interfaces
+     command: ifreload -a
+=======
+      command: reboot
 
   handlers:
    - name: apply interfaces

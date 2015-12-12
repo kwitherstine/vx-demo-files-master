@@ -2,28 +2,11 @@
 - hosts: network
   sudo: yes
   tasks:
-  - name: Copy Interfaces File
-    copy: src={{ inventory_hostname }}/interfaces dest=/etc/network/interfaces
-    notify:
-    - apply interfaces
+  - name: Show Cumulus Linux BGP summary
+    command: sudo cl-bgp summary
 
-  - name: enable BGP in Quagga Daemons
-    cl_quagga_protocol: name="bgpd" state=present
-    notify:
-    - restart quagga
+  - name: Show Cumulus Linux BGP neighbor
+    command: sudo cl-bgp neighbor show all
 
-  - name: Enable Quagga Reload
-    replace: dest=/etc/default/quagga regexp="ENABLE_RELOAD=no" replace="ENABLE_RELOAD=yes"
-
-  - name: Copy Quagga.conf
-    copy: src={{ inventory_hostname }}/Quagga.conf dest=/etc/quagga/Quagga.conf
-    notify:
-    - reload quagga
-
-  handlers:
-   - name: apply interfaces
-     command: ifreload -a
-   - name: restart quagga
-     service: name=quagga state=restarted
-   - name: reload quagga
-     service: name=quagga state=reloaded
+  - name: Show IP Routes
+    command: ip route
