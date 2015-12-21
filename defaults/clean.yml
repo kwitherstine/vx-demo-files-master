@@ -4,6 +4,11 @@
   tasks:
   - name: Copy Default Interfaces File to each Switch
     copy: src=/home/cumulus/vx-demo-files-master/defaults/interfaces.orig dest=/etc/network/interfaces
+<<<<<<< HEAD
+=======
+    notify:
+    - apply interfaces
+>>>>>>> 4ad613b0e008d5709878b221904ad1cdbb732a0f
 
   - name: Copy Default Quagga Daemons File to each Switch
     copy: src=/home/cumulus/vx-demo-files-master/defaults/daemons.orig dest=/etc/quagga/daemons
@@ -12,4 +17,12 @@
     command: rm /etc/quagga/Quagga.conf
 
   - name: Reboot Switches
+<<<<<<< HEAD
     command: reboot
+=======
+      command: reboot
+
+  handlers:
+   - name: apply interfaces
+     command: ifreload -a
+>>>>>>> 4ad613b0e008d5709878b221904ad1cdbb732a0f
