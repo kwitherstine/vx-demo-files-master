@@ -1,71 +1,61 @@
-{\rtf1\ansi\ansicpg1252\cocoartf1404\cocoasubrtf340
-{\fonttbl\f0\fnil\fcharset0 Menlo-Regular;}
-{\colortbl;\red255\green255\blue255;}
-\margl1440\margr1440\vieww14120\viewh16500\viewkind0
-\deftab720
-\pard\pardeftab720\partightenfactor0
+VBoxManage clonevm "CumulusVX-2.5.4-fe760348e9fccfb1" --mode machine --name "leaf1" --register
+VBoxManage clonevm "CumulusVX-2.5.4-fe760348e9fccfb1" --mode machine --name "leaf2" --register
+VBoxManage clonevm "CumulusVX-2.5.4-fe760348e9fccfb1" --mode machine --name "spine1" --register
+VBoxManage clonevm "CumulusVX-2.5.4-fe760348e9fccfb1" --mode machine --name "spine2" --register
 
-\f0\fs18 \cf0 \expnd0\expndtw0\kerning0
-VBoxManage clonevm "CumulusVX-2.5.4-fe760348e9fccfb1" --mode machine --name "leaf1" --register\
-VBoxManage clonevm "CumulusVX-2.5.4-fe760348e9fccfb1" --mode machine --name "leaf2" --register\
-VBoxManage clonevm "CumulusVX-2.5.4-fe760348e9fccfb1" --mode machine --name "spine1" --register\
-VBoxManage clonevm "CumulusVX-2.5.4-fe760348e9fccfb1" --mode machine --name "spine2" --register\
-\
-VBoxManage modifyvm "leaf1" --nic1 intnet\
-VBoxManage modifyvm "leaf1" --nic2 intnet\
-VBoxManage modifyvm "leaf1" --nic3 intnet\
-VBoxManage modifyvm "leaf1" --nic4 intnet\
-VBoxManage modifyvm "leaf1" --macaddress1 080027817AFA\
-VBoxManage modifyvm "leaf1" --intnet1 "OOB"\
-VBoxManage modifyvm "leaf1" --intnet2 "leaf1-spine1"\
-VBoxManage modifyvm "leaf1" --intnet3 "leaf1-spine2"\
-VBoxManage modifyvm "leaf1" --intnet4 "l1s2.1"\
-VBoxManage modifyvm "leaf1" --nicpromisc2 allow-all\
-VBoxManage modifyvm "leaf1" --nicpromisc3 allow-all\
-VBoxManage modifyvm "leaf1" --nicpromisc4 allow-all\
-\
-VBoxManage modifyvm "leaf2" --nic1 intnet\
-VBoxManage modifyvm "leaf2" --nic2 intnet\
-VBoxManage modifyvm "leaf2" --nic3 intnet\
-VBoxManage modifyvm "leaf2" --nic4 intnet\
-VBoxManage modifyvm "leaf2" --macaddress1 080027EF72F2\
-VBoxManage modifyvm "leaf2" --intnet1 "OOB"\
-VBoxManage modifyvm "leaf2" --intnet2 "leaf2-spine1"\
-VBoxManage modifyvm "leaf2" --intnet3 "leaf2-spine2"\
-VBoxManage modifyvm "leaf2" --intnet4 "l2s2.1"\
-VBoxManage modifyvm "leaf2" --nicpromisc2 allow-all\
-VBoxManage modifyvm "leaf2" --nicpromisc3 allow-all\
-VBoxManage modifyvm "leaf2" --nicpromisc4 allow-all\
-\
-VBoxManage modifyvm "spine1" --nic1 intnet\
-VBoxManage modifyvm "spine1" --nic2 intnet\
-VBoxManage modifyvm "spine1" --nic3 intnet\
-VBoxManage modifyvm "spine1" --nic4 intnet\
-VBoxManage modifyvm "spine1" --macaddress1 080027BD9BBA\
-VBoxManage modifyvm "spine1" --intnet1 "OOB"\
-VBoxManage modifyvm "spine1" --intnet2 "leaf1-spine1"\
-VBoxManage modifyvm "spine1" --intnet3 "leaf2-spine1"\
-VBoxManage modifyvm "spine1" --intnet4 "l2s1.1"\
-VBoxManage modifyvm "spine1" --nicpromisc2 allow-all\
-VBoxManage modifyvm "spine1" --nicpromisc3 allow-all\
-VBoxManage modifyvm "spine1" --nicpromisc4 allow-all\
-\
-VBoxManage modifyvm "spine2" --nic1 intnet\
-VBoxManage modifyvm "spine2" --nic2 intnet\
-VBoxManage modifyvm "spine2" --nic3 intnet\
-VBoxManage modifyvm "spine2" --nic4 intnet\
-VBoxManage modifyvm "spine2" --macaddress1 08002710EDB2\
-VBoxManage modifyvm "spine2" --intnet1 "OOB"\
-VBoxManage modifyvm "spine2" --intnet2 "leaf1-spine2"\
-VBoxManage modifyvm "spine2" --intnet3 "leaf2-spine2"\
-VBoxManage modifyvm "spine2" --intnet4 "l2s2.1"\
-VBoxManage modifyvm "spine2" --nicpromisc2 allow-all\
-VBoxManage modifyvm "spine2" --nicpromisc3 allow-all\
-VBoxManage modifyvm "spine2" --nicpromisc4 allow-all\
-\
-\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardeftab720\pardirnatural\partightenfactor0
+VBoxManage modifyvm "leaf1" --nic1 intnet
+VBoxManage modifyvm "leaf1" --nic2 intnet
+VBoxManage modifyvm "leaf1" --nic3 intnet
+VBoxManage modifyvm "leaf1" --nic4 intnet
+VBoxManage modifyvm "leaf1" --macaddress1 080027817AFA
+VBoxManage modifyvm "leaf1" --intnet1 "OOB"
+VBoxManage modifyvm "leaf1" --intnet2 "leaf1-spine1"
+VBoxManage modifyvm "leaf1" --intnet3 "leaf1-spine2"
+VBoxManage modifyvm "leaf1" --intnet4 "l1s2.1"
+VBoxManage modifyvm "leaf1" --nicpromisc2 allow-all
+VBoxManage modifyvm "leaf1" --nicpromisc3 allow-all
+VBoxManage modifyvm "leaf1" --nicpromisc4 allow-all
 
-\fs22 \cf0 \kerning1\expnd0\expndtw0 \CocoaLigature0 VBoxManage startvm leaf1 --type headless\
-VBoxManage startvm leaf2 --type headless\
-VBoxManage startvm spine1 --type headless\
-VBoxManage startvm spine2 --type headless}
+VBoxManage modifyvm "leaf2" --nic1 intnet
+VBoxManage modifyvm "leaf2" --nic2 intnet
+VBoxManage modifyvm "leaf2" --nic3 intnet
+VBoxManage modifyvm "leaf2" --nic4 intnet
+VBoxManage modifyvm "leaf2" --macaddress1 080027EF72F2
+VBoxManage modifyvm "leaf2" --intnet1 "OOB"
+VBoxManage modifyvm "leaf2" --intnet2 "leaf2-spine1"
+VBoxManage modifyvm "leaf2" --intnet3 "leaf2-spine2"
+VBoxManage modifyvm "leaf2" --intnet4 "l2s2.1"
+VBoxManage modifyvm "leaf2" --nicpromisc2 allow-all
+VBoxManage modifyvm "leaf2" --nicpromisc3 allow-all
+VBoxManage modifyvm "leaf2" --nicpromisc4 allow-all
+
+VBoxManage modifyvm "spine1" --nic1 intnet
+VBoxManage modifyvm "spine1" --nic2 intnet
+VBoxManage modifyvm "spine1" --nic3 intnet
+VBoxManage modifyvm "spine1" --nic4 intnet
+VBoxManage modifyvm "spine1" --macaddress1 080027BD9BBA
+VBoxManage modifyvm "spine1" --intnet1 "OOB"
+VBoxManage modifyvm "spine1" --intnet2 "leaf1-spine1"
+VBoxManage modifyvm "spine1" --intnet3 "leaf2-spine1"
+VBoxManage modifyvm "spine1" --intnet4 "l2s1.1"
+VBoxManage modifyvm "spine1" --nicpromisc2 allow-all
+VBoxManage modifyvm "spine1" --nicpromisc3 allow-all
+VBoxManage modifyvm "spine1" --nicpromisc4 allow-all
+
+VBoxManage modifyvm "spine2" --nic1 intnet
+VBoxManage modifyvm "spine2" --nic2 intnet
+VBoxManage modifyvm "spine2" --nic3 intnet
+VBoxManage modifyvm "spine2" --nic4 intnet
+VBoxManage modifyvm "spine2" --macaddress1 08002710EDB2
+VBoxManage modifyvm "spine2" --intnet1 "OOB"
+VBoxManage modifyvm "spine2" --intnet2 "leaf1-spine2"
+VBoxManage modifyvm "spine2" --intnet3 "leaf2-spine2"
+VBoxManage modifyvm "spine2" --intnet4 "l2s2.1"
+VBoxManage modifyvm "spine2" --nicpromisc2 allow-all
+VBoxManage modifyvm "spine2" --nicpromisc3 allow-all
+VBoxManage modifyvm "spine2" --nicpromisc4 allow-all
+
+VBoxManage startvm leaf1 --type headless
+VBoxManage startvm leaf2 --type headless
+VBoxManage startvm spine1 --type headless
+VBoxManage startvm spine2 --type headless
