@@ -2,4 +2,4 @@
 - hosts: all
   sudo: yes
   tasks:
-  - apt: upgrade=dist
+  - apt: upgrade=dist update_cache=yes
