@@ -1,5 +1,5 @@
 ---
-- hosts: network
+- hosts: "{{ variable_host | default('network') }}"
   sudo: yes
   tasks:
   - name: Copy Default Interfaces File to each Switch
