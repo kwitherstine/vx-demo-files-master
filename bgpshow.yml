@@ -1,5 +1,5 @@
 ---
-- hosts: network
+- hosts: "{{ variable_host | default('network') }}"
   sudo: yes
   tasks:
   - name: Show Cumulus Linux BGP summary

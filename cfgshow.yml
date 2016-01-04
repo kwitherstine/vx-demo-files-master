@@ -1,9 +1,15 @@
 ---
-- hosts: network
+- hosts: "{{ variable_host | default('network') }}"
   sudo: yes
   tasks:
   - name: Show Hostname
+    command: hostname
+    
+  - name: Show Interfaces
     command: cat /etc/network/interfaces
+    
+  - name: Netshow Interfaces
+    command: netshow interface
 
   - name: Show Router configurations
     command: cat /etc/quagga/Quagga.conf

@@ -1,5 +1,9 @@
 ---
+<<<<<<< HEAD
 - hosts: network 
+=======
+- hosts: all
+>>>>>>> e196e6b78f65f042f07eff44ab7e01afd0bfc97b
   sudo: yes
   tasks:
-  - apt: upgrade=dist
+  - apt: upgrade=dist update_cache=yes
