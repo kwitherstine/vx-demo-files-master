@@ -3,10 +3,10 @@
   sudo: yes
   tasks:
   - name: Copy Default Interfaces File to each Switch
-    copy: src={{ mgmt_ui }}/interfaces.orig dest=/etc/network/interfaces
+    copy: src=mgmt_ui/interfaces.orig dest=/etc/network/interfaces
 
   - name: Copy Default Quagga Daemons File to each Switch
-    copy: src={{ mgmt_ui }}/daemons.orig dest=/etc/quagga/daemons
+    copy: src=mgmt_ui/daemons.orig dest=/etc/quagga/daemons
 
   - name: Reprovision Quagga to defaults
     command: rm /etc/quagga/Quagga.conf
