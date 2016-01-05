@@ -4,8 +4,8 @@
   tasks:
   - name: Show Hostname
     command: hostname
-    register: hostname
-  - debug: var=hostname.stdout.split('\n')
+    register: hostname_output
+    debug: var=hostname_output.stdout.split('\n')
     
   - name: Show Interfaces
     command: cat /etc/network/interfaces
