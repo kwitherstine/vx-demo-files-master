@@ -4,9 +4,15 @@
   tasks:
   - name: Show Cumulus Linux BGP summary
     command: sudo cl-bgp summary
+    register: bgp_output
+  - debug: var=bgp_output.stdout.split('\n')
 
   - name: Show Cumulus Linux BGP neighbor
     command: sudo cl-bgp neighbor show all
+    register: neighbor_output
+  - debug: var=neighbor_output.stdout.split('\n')
 
   - name: Show IP Routes
     command: ip route
+    register: route_output
+  - debug: var=route_output.stdout.split('\n')
