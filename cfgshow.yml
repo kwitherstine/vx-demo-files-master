@@ -10,9 +10,15 @@
     
   - name: Show Interfaces
     command: cat /etc/network/interfaces
+    register: interface_output
+  - debug: msg="{{ interface_output.stdout }}"
     
   - name: Netshow Interfaces
     command: netshow interface
+    register: netshow_output
+  - debug: msg="{{ netshow_output.stdout }}"
 
   - name: Show Router configurations
     command: cat /etc/quagga/Quagga.conf
+    register: router_output
+  - debug: msg="{{ router_output.stdout }}"
