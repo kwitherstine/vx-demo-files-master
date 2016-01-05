@@ -5,8 +5,7 @@
   - name: Show Hostname
     command: hostname
     register: hostname
-    
-  - debug: var=hostname.stdout_lines
+    debug: var=hostname.stdout.split('\n')
     
   - name: Show Interfaces
     command: cat /etc/network/interfaces
