@@ -4,6 +4,9 @@
   tasks:
   - name: Show Hostname
     command: hostname
+    register: out
+    
+  - debug: var=out.stdout_lines
     
   - name: Show Interfaces
     command: cat /etc/network/interfaces
