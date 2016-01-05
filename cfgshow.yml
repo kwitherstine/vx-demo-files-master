@@ -3,11 +3,10 @@
   sudo: yes
   tasks:
   - name: Show Hostname
-    command: {{ item }}
-    with_items:
-    - hostname
-      register: hostname_output
-    - debug: var=hostname_output.stdout.split('\n')
+    command: hostname
+    register: hostname_output
+    #- debug: var=hostname_output.stdout.split('\n')
+  - debug: msg="{{ hostname_output.stdout }}"
     
   - name: Show Interfaces
     command: cat /etc/network/interfaces
