@@ -5,20 +5,23 @@
   - name: Show Hostname
     command: hostname
     register: hostname_output
-    #- debug: var=hostname_output.stdout.split('\n')
-  - debug: msg="{{ hostname_output.stdout }}"
+  - debug: var=hostname_output.stdout.split('\n')
+  #- debug: msg="{{ hostname_output.stdout }}"
     
   - name: Show Interfaces
     command: cat /etc/network/interfaces
     register: interface_output
-  - debug: msg="{{ interface_output.stdout }}"
+  #- debug: msg="{{ interface_output.stdout }}"
+  - debug: var=interface_output.stdout.split('\n')
     
   - name: Netshow Interfaces
     command: netshow interface
     register: netshow_output
-  - debug: msg="{{ netshow_output.stdout }}"
+  #- debug: msg="{{ netshow_output.stdout }}"
+  - debug: var=netshow_output.stdout.split('\n')
 
   - name: Show Router configurations
     command: cat /etc/quagga/Quagga.conf
     register: router_output
-  - debug: msg="{{ router_output.stdout }}"
+  #- debug: msg="{{ router_output.stdout }}"
+  - debug: var=router_output.stdout.split('\n')
