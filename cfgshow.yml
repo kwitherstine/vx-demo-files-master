@@ -6,7 +6,7 @@
     command: hostname
     register: out
     
-  - debug: var=out.stdout_lines
+  - debug: msg="{{ out.stdout_lines }}"
     
   - name: Show Interfaces
     command: cat /etc/network/interfaces
